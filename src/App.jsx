@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 
 function App() {
   useEffect(() => {
-    fetch("https://portfolio-backend-sayi.onrender.com", {
+    fetch("https://portfolio-backend-sayi.onrender.com/visit", {
       method: "POST",
     }).catch(console.error);
   }, []);
