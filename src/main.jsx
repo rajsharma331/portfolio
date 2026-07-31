@@ -7,7 +7,7 @@ import App from "./App";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
-
+import Settings from "./pages/Settings";
 ReactDOM.createRoot(document.getElementById("root")).render(
 
   <React.StrictMode>
@@ -25,7 +25,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route 
           path="/login" 
           element={<Login />} 
-        />
+        /><Route path="/settings" element={<Settings />} />
 
 
         <Route

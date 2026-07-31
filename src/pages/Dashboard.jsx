@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import API from "../services/api";
 
 import VisitorsChart from "../charts/VisitorsChart";
@@ -46,26 +47,34 @@ function Dashboard() {
     <div className="min-h-screen bg-slate-950 text-white p-8">
 
 
-      <div className="flex justify-between items-center mb-8">
+     <div className="flex justify-between items-center mb-8">
 
   <h1 className="text-4xl font-bold">
     📊 Portfolio Analytics
   </h1>
 
+  <div className="flex gap-3">
 
-  <button
-    onClick={() => {
-      localStorage.removeItem("token");
-      window.location.href = "/login";
-    }}
-    className="bg-red-500 px-5 py-2 rounded-lg font-bold"
-  >
-    Logout
-  </button>
+    <Link
+      to="/settings"
+      className="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-lg font-bold"
+    >
+      ⚙️ Settings
+    </Link>
+
+    <button
+      onClick={() => {
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+      }}
+      className="bg-red-500 hover:bg-red-600 px-5 py-2 rounded-lg font-bold"
+    >
+      Logout
+    </button>
+
+  </div>
 
 </div>
-
-
 
       {/* Cards */}
 
