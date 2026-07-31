@@ -9,20 +9,23 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function App() {
- useEffect(() => {
-  fetch("https://portfolio-backend-sayi.onrender.com/visit", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      screen: `${window.screen.width} x ${window.screen.height}`,
-      language: navigator.language,
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      referrer: document.referrer || "Direct",
-    }),
-  }).catch(console.error);
-}, []);
+  useEffect(() => {
+    console.log(import.meta.env.VITE_API_URL);
+    const API_URL = import.meta.env.VITE_API_URL;
+
+    fetch(`${API_URL}/visit`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        screen: `${window.screen.width} x ${window.screen.height}`,
+        language: navigator.language,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        referrer: document.referrer || "Direct",
+      }),
+    }).catch(console.error);
+  }, []);
 
   return (
     <div className="bg-slate-950 text-gray-100 min-h-screen">
